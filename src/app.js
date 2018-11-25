@@ -42,4 +42,7 @@ const App = () => (
     </ApolloProvider>
 );
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+export default (containerId) => {
+    ReactDOM.render(<App/>, document.getElementById(containerId));
+}
+

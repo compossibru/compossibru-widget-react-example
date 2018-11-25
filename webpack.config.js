@@ -1,13 +1,17 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const output = {
+    path: path.resolve('dist'),
+    filename: 'bundled.js'
+};
+if (process.env.NODE_ENV === 'production') {
+    output.libraryTarget = 'commonjs2';
+}
+
 module.exports = {
-    entry: './src/app.js',
-    output: {
-        path: path.resolve('dist'),
-        filename: 'bundled.js',
-        libraryTarget: 'commonjs2'
-    },
+    entry: process.env.NODE_ENV === 'production' ? './src/app.js' : './src/dev.js',
+    output,
     module: {
         rules: [
             {
