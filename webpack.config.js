@@ -5,7 +5,8 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve('dist'),
-        filename: 'bundled.js'
+        filename: 'bundled.js',
+        libraryTarget: 'commonjs2'
     },
     module: {
         rules: [
